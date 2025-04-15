@@ -42,9 +42,9 @@ cyber-uxcellence/
 │
 └── assets/
     └── images/                  ← Image assets
-        ├── logo-white.svg       ← Logo for dark backgrounds
+        ├── /logo-wordmark.svg   ← Logo for dark backgrounds
         ├── shield-icon.svg      ← Shield icon for hero background
-        ├── categories/          ← Category-specific images
+        ├── Custom Icon Exports  ← Category-specific images
         └── icons/               ← UI icons
 ```
 
