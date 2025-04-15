@@ -1,0 +1,257 @@
+/* 
+ * Cyber UXcellence Awards - About Section Styles
+ */
+
+.about-section {
+  /* Purple gradient background */
+  background: linear-gradient(120deg, #9370DB, #E6E6FA);
+  color: var(--mg-nearly-black);
+  padding: var(--spacing-xxl) 0 var(--spacing-xl); /* Increased bottom padding */
+  position: relative;
+}
+
+.about-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-section h2 {
+  color: var(--mg-dark-purple);
+  margin-bottom: var(--spacing-xl);
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.about-content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.about-intro {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-lg);
+  font-weight: 500;
+}
+
+.about-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+}
+
+.key-points {
+  margin: var(--spacing-xl) 0;
+}
+
+.key-points h3 {
+  color: var(--mg-dark-purple);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+}
+
+.checkmark-list {
+  list-style: none;
+  padding: 0;
+}
+
+.checkmark-list li {
+  display: flex;
+  margin-bottom: var(--spacing-md);
+  align-items: flex-start;
+  font-size: 1.25rem;
+}
+
+.checkmark-icon {
+  color: var(--mg-red);
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-right: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.checkmark-text {
+  line-height: 1.5;
+}
+
+.creator-info {
+  padding: var(--spacing-lg) 0;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.mindgrub-link {
+  color: var(--mg-red);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mindgrub-link:hover {
+  color: var(--mg-dark-purple);
+  text-decoration: underline;
+}
+
+/* Quote Section */
+.quote-section {
+  background-color: var(--mg-red);
+  color: var(--white);
+  padding: var(--spacing-xl) 0 var(--spacing-xxl); /* Increased bottom padding */
+  margin-top: -30px; /* Shift upward to cover gap */
+  margin-bottom: 0; /* Remove bottom margin */
+  position: relative;
+  z-index: 5; /* Ensure it appears above other elements */
+}
+
+.quote-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px; /* Added padding to ensure consistent spacing */
+}
+
+.quote-content {
+  flex: 2.5; /* Adjusted from 2.8 to balance with larger image */
+  position: relative;
+  padding-left: 20px;
+}
+
+.quote-mark {
+  font-size: 5rem;
+  line-height: 0;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  opacity: 0.5;
+  font-family: serif;
+}
+
+blockquote {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0 0 var(--spacing-md);
+  font-weight: 300;
+}
+
+.attribution {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.quote-author {
+  flex: 1.5; /* Increased from 1.2 to give even more space to the image */
+  max-width: 320px; /* Increased from 280px for a larger image */
+  display: flex;
+  justify-content: center;
+}
+
+.ceo-image {
+  width: 100%;
+  height: auto;
+  max-height: 370px; /* Increased from 320px */
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Added shadow for emphasis */
+}
+
+@media (max-width: 991px) {
+  .about-section h2 {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+  
+  .about-intro, 
+  .about-description {
+    font-size: 1.2rem;
+  }
+  
+  .checkmark-list li {
+    font-size: 1.1rem;
+  }
+  
+  .creator-info {
+    font-size: 1.1rem;
+  }
+  
+  .quote-section {
+    margin-top: -20px; /* Adjusted for tablet */
+  }
+  
+  .quote-container {
+    flex-direction: column-reverse;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+  }
+  
+  .quote-author {
+    max-width: 300px; /* Increased from 250px for tablet */
+  }
+  
+  .ceo-image {
+    max-height: 300px; /* Increased for tablet */
+  }
+  
+  .quote-content {
+    padding-left: 0;
+  }
+  
+  blockquote {
+    font-size: 1.25rem;
+  }
+  
+  .quote-mark {
+    left: -20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+  }
+  
+  .quote-section {
+    margin-top: -15px; /* Adjusted for mobile */
+    padding: var(--spacing-xl) 0 var(--spacing-xl); /* Adjusted padding */
+  }
+  
+  .quote-author {
+    max-width: 240px; /* Adjusted for mobile, but still larger than original */
+  }
+  
+  .ceo-image {
+    max-height: 250px; /* Adjusted for mobile, but still larger than original */
+  }
+  
+  .about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .about-intro {
+    font-size: 1.125rem;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+  }
+  
+  .key-points h3 {
+    font-size: 1.25rem;
+  }
+  
+  .checkmark-list li {
+    font-size: 1rem;
+  }
+  
+  .creator-info {
+    font-size: 1rem;
+  }
+  
+  .ceo-image {
+    max-height: 200px;
+  }
+}

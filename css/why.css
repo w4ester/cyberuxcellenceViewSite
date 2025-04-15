@@ -1,0 +1,121 @@
+/* 
+ * Cyber UXcellence Awards - Why Nominate Section Styles
+ */
+
+.why-section {
+  background-color: var(--mg-light-purple); /* Using the brand's light purple */
+  background-image: linear-gradient(to right, var(--mg-light-purple), var(--white)); /* Purple-White Gradient */
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove diagonal pattern overlay */
+.why-section::after {
+  content: none; /* Remove the diagonal pattern */
+}
+
+/* Grid layout for benefit cards */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Benefit card styling */
+.benefit-card {
+  background-color: transparent;
+  padding: var(--spacing-lg);
+  position: relative;
+}
+
+.benefit-card h3 {
+  color: var(--mg-dark-purple);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.4rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.benefit-card p {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Benefit icon styling */
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: var(--spacing-sm);
+}
+
+.benefit-icon img {
+  width: 100%;
+  height: auto;
+  max-width: 60px;
+  /* Original red color - no filter needed as the icons are already red in their source files */
+  filter: none;
+}
+
+/* CTA container styling */
+.cta-container {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation for fade-in effect */
+.benefit-card.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .why-section h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .benefit-card {
+    padding: var(--spacing-md);
+  }
+  
+  .why-section h2 {
+    font-size: 2rem;
+  }
+  
+  .benefit-icon {
+    width: 50px;
+    height: 50px;
+  }
+}

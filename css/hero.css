@@ -1,0 +1,177 @@
+/* 
+ * Cyber UXcellence Awards - Hero Section Styles
+ */
+
+.hero-section {
+  position: relative;
+  background-color: var(--mg-dark-purple);
+  color: var(--white);
+  padding: 160px 0 120px; /* Increased padding, especially at the top */
+  overflow: hidden;
+  min-height: calc(90vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  /* Remove any top margin to eliminate gap */
+  margin-top: 0;
+}
+
+/* Apply diagonal pattern directly to hero section */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  z-index: 1;
+}
+
+.hero-section .hero-bg-icon {
+  position: absolute; /* Position relative to the hero section */
+  bottom: -50px; 
+  right: 0;
+  transform: rotate(-45deg); /* Rotate to point toward the text */
+  width: 600px; /* Enlarged */
+  height: 600px; /* Enlarged */
+  background-image: url('../assets/images/shield-icon.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  opacity: 0.25; /* More transparent */
+  animation: rotateShield 30s infinite linear; /* Slow constant rotation */
+}
+
+@keyframes rotateShield {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(315deg); /* Full 360 degree rotation */
+  }
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-left: var(--container-padding);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.hero-content {
+  max-width: 900px;
+  text-align: left;
+}
+
+.hero-section h1 {
+  font-size: 4.5rem; /* Scaled down the font size */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+  text-align: left;
+}
+
+.hero-section h1 .line {
+  display: block;
+}
+
+.hero-subheading {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-lg);
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: flex-start; /* Align to the left */
+  margin-top: var(--spacing-lg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .hero-section .hero-bg-icon {
+    width: 500px;
+    height: 500px;
+    right: 2%;
+    bottom: -40px;
+  }
+  
+  .hero-section h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-section {
+    min-height: calc(80vh - var(--nav-height));
+  }
+  
+  .hero-section h1 {
+    font-size: 3.5rem;
+  }
+  
+  .hero-section .hero-bg-icon {
+    width: 400px;
+    height: 400px;
+    opacity: 0.2;
+    right: -50px;
+    bottom: -30px;
+  }
+  
+  .hero-subheading {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 550px;
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.75rem;
+  }
+  
+  .hero-section h1 .line {
+    white-space: normal;
+  }
+  
+  .hero-buttons {
+    align-items: flex-start;
+  }
+  
+  .hero-buttons .cta-button {
+    width: auto; /* Button will size to content */
+    text-align: center;
+    padding-left: 40px; /* Increase horizontal padding */
+    padding-right: 40px;
+  }
+  
+  .hero-section .hero-bg-icon {
+    right: -70px;
+    bottom: -20px;
+    width: 300px;
+    height: 300px;
+    opacity: 0.15;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2.25rem;
+  }
+  
+  .hero-subheading {
+    font-size: 1.125rem;
+  }
+}

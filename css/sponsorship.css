@@ -1,0 +1,131 @@
+/* 
+ * Cyber UXcellence Awards - Sponsorship Section Styles
+ */
+
+.sponsorship-section {
+  color: var(--white);
+  padding: 0;
+  margin: 0;
+}
+
+/* Full-width red CTA section */
+.sponsorship-cta {
+  background-color: var(--mg-red); /* Using brand guide red */
+  padding: var(--spacing-xxl) 0;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.sponsorship-cta h2 {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--white);
+  font-weight: 800;
+}
+
+.sponsorship-cta p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+  max-width: 800px; /* Set maximum width for button container */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Special class for this button to avoid class collisions */
+.sponsor-cta-button,
+.mindgrub-link.dark-purple {
+  display: inline-block;
+  width: 280px; /* Fixed width for both buttons */
+  font-size: 1.125rem;
+  padding: 18px 24px;
+  border-radius: var(--border-radius-pill);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.sponsor-cta-button {
+  background-color: var(--mg-nearly-black); /* Changed to nearly-black from brand guide */
+  color: var(--white);
+}
+
+.sponsor-cta-button:hover {
+  background-color: #302a2b; /* Slightly lighter shade of nearly-black */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  color: var(--white);
+}
+
+/* Dark purple variant */
+.mindgrub-link.dark-purple {
+  background-color: var(--mg-dark-purple); /* Dark purple */
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mindgrub-link.dark-purple:hover {
+  background-color: #251c4a; /* Slightly darker on hover */
+  transform: translateY(-2px);
+  color: var(--white);
+}
+
+.external-icon {
+  margin-left: 8px;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+/* Remove gap between sponsorship and footer */
+footer {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+main {
+  margin-bottom: 0;
+}
+
+/* Force section to be flush with footer */
+#sponsorship {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .sponsorship-cta h2 {
+    font-size: 2.25rem;
+  }
+  
+  .sponsorship-cta p {
+    font-size: 1.125rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .sponsor-cta-button,
+  .mindgrub-link.dark-purple {
+    width: 100%;
+    max-width: 280px;
+  }
+}

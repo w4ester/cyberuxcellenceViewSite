@@ -1,0 +1,122 @@
+/* 
+ * Cyber UXcellence Awards - Judges Section Styles
+ */
+
+.judges-section {
+  background: linear-gradient(to right, var(--mg-red), #d93c36); /* More red gradient */
+  padding: var(--spacing-xxl) 0;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Removed section-header styles to use global styles */
+
+/* Removed diagonal pattern for judges section */
+
+.judges-content {
+  position: relative;
+  z-index: 2;
+}
+
+.judges-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.judge-info-card {
+  background-color: var(--mg-dark-purple); /* Official dark purple */
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.judge-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: var(--spacing-md);
+}
+
+.judge-icon img {
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+  /* Convert icons to white */
+  filter: brightness(0) invert(1);
+}
+
+.judge-info-card h3 {
+  color: var(--white);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: var(--spacing-lg);
+}
+
+.judge-info-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.date-badge {
+  display: inline-block;
+  background-color: var(--white); /* White background for contrast */
+  color: var(--mg-red); /* Red text for readability */
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: var(--border-radius-pill);
+  font-size: 1rem;
+  margin-top: var(--spacing-md);
+}
+
+/* Animation for fade-in effect */
+.judge-info-card, .judges-section .section-header {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.judge-info-card.fade-in, .judges-section .section-header.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .judges-section h2 {
+    font-size: 2.5rem;
+  }
+  
+  .judges-cards {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .judges-section h2 {
+    font-size: 2rem;
+  }
+  
+  .judges-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .judge-info-card {
+    padding: var(--spacing-md);
+  }
+}

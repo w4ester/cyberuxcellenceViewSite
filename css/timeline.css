@@ -1,0 +1,187 @@
+/* 
+ * Cyber UXcellence Awards - Timeline Section Styles
+ */
+
+.timeline-section {
+  background-color: var(--mg-dark-purple); /* Official dark purple */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+}
+
+/* Removed section-header styles to use global styles */
+
+/* Timeline container */
+.timeline-container {
+  position: relative;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* The vertical line */
+.timeline-line {
+  position: absolute;
+  width: 4px;
+  background-color: var(--mg-nearly-black); /* Official MG Nearly Black #231F20 */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  z-index: 1;
+  --progress: 0%;
+  --active-height: 0%;
+}
+
+/* Timeline items */
+.timeline-item {
+  position: relative;
+  margin-bottom: 80px;
+  width: 50%;
+  z-index: 2;
+}
+
+.timeline-item.left {
+  left: 0;
+  padding-right: 40px;
+}
+
+.timeline-item.right {
+  left: 50%;
+  padding-left: 40px;
+}
+
+/* The dot on the timeline */
+.timeline-dot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--mg-nearly-black); /* Official MG Nearly Black #231F20 */
+  border: 4px solid white;
+  z-index: 3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.timeline-item.active .timeline-dot {
+  background-color: var(--mg-red); /* Official red */
+}
+
+.timeline-item.left .timeline-dot {
+  right: -12px;
+  top: 24px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -12px;
+  top: 24px;
+}
+
+/* Timeline content */
+.timeline-content {
+  background-color: white;
+  padding: 25px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+  border-left: 4px solid var(--mg-nearly-black); /* Official MG Nearly Black #231F20 */
+}
+
+/* Add content transition on active */
+.timeline-item.active .timeline-content {
+  transform: translateY(-5px);
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--mg-nearly-black); /* Official MG Nearly Black #231F20 */
+  color: white;
+  border-radius: var(--border-radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+  transition: background-color 0.3s ease;
+}
+
+.timeline-item.active .timeline-date {
+  background-color: var(--mg-red); /* Official red */
+}
+
+.timeline-content h3 {
+  color: var(--mg-dark-purple);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.timeline-content p {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* CTA at the bottom */
+.timeline-section .cta-container {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+/* Animation for scrolling effect */
+.timeline-item {
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+.timeline-item.active {
+  opacity: 1;
+}
+
+/* Removed the progress line that changes color */
+.timeline-line::after {
+  display: none; /* Don't show the changing line at all */
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .timeline-section h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 0;
+    left: 0;
+  }
+  
+  .timeline-line {
+    left: 25px;
+  }
+  
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 13px;
+    right: auto;
+  }
+  
+  .timeline-item.right {
+    left: 0;
+  }
+  
+  .timeline-section h2 {
+    font-size: 2rem;
+  }
+}
