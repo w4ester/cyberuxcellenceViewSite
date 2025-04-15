@@ -53,7 +53,7 @@
   
   /* Navigation height for proper spacing */
   /*--nav-height: 72px;*/
-    --nav-height: 76x; /* Adjusted for better visibility */
+    --nav-height: 78px; /* Adjusted for better visibility */
 }
 
 /* --------------------------------------------------
@@ -289,6 +289,9 @@ section:last-of-type {
 
 .logo-wrapper {
   display: flex;
+  position: relative;
+  top: 6px;
+  bottom: 6px;
   flex-direction: column;
 }
 
@@ -299,28 +302,37 @@ section:last-of-type {
 }
 
 .logo-cyber {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 1.00rem;
+  font-weight: 400;
   color: var(--white);
+  margin-top: 8px;
 }
 
 .logo-uxcellence {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.00rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.logo-uxcellence::before {
+  content: "UX";
+  position: absolute;
+  font-weight: 950; /* Extra bold for UX */
   color: var(--white);
 }
 
 .logo-awards {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.00rem;
+  font-weight: 950;
   color: var(--white);
 }
 
 .powered-by {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   color: var(--white);
   opacity: 0.7;
   margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .nav-links {
