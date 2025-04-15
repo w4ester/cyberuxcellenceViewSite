@@ -52,7 +52,8 @@
   --container-padding: 24px;
   
   /* Navigation height for proper spacing */
-  --nav-height: 72px;
+  /*--nav-height: 72px;*/
+    --nav-height: 76x; /* Adjusted for better visibility */
 }
 
 /* --------------------------------------------------
