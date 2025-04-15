@@ -8,7 +8,7 @@
   color: var(--white);
   padding: 70px 0 100px; /* Reduced top padding to eliminate gap */
   overflow: hidden;
-  margin-top: -40px; /* Increased negative margin to pull it up */
+  margin-top: -46px; /* increased from 40 to 46px increased negative margin to pull it up */
 }
 
 /* Background diagonal pattern - properly implemented */
