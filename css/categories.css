@@ -29,6 +29,10 @@
   overflow: hidden;
   margin-top: 0;
 }
+.categories-section-desktop .container {
+  position: relative;
+  z-index: 2;
+}
 
 .categories-section-desktop::before {
   content: '';
@@ -56,12 +60,17 @@
 }
 
 .categories-section-desktop .section-title {
-  font-size: 2.5rem; /* Smaller for better contrast */
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 60px;
-  color: var(--mg-red); /* Brand red for strong contrast */
+  color: #fff;
   text-align: left;
   letter-spacing: -0.5px;
+  position: relative;
+  z-index: 3;
+  opacity: 1;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
 .categories-section-desktop .categories-container {
@@ -74,16 +83,22 @@
 .categories-section-desktop .category-description {
   flex: 0.8;
   display: flex;
-  flex-direction: column;
-  max-width: 400px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 600px;
   position: relative;
   z-index: 2;
 }
 
 .categories-section-desktop .category-icon {
-  margin-bottom: 30px;
-  width: 100px;
-  height: 100px;
+  margin-bottom: 0;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .categories-section-desktop .category-icon img {
@@ -142,13 +157,13 @@
 }
 /* Center category icon and nomination button in desktop left column */
 .categories-section-desktop .category-description {
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .categories-section-desktop .category-icon {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .categories-section-desktop .nominate-btn-container {
@@ -165,7 +180,7 @@
   max-width: 650px;
   background-color: rgba(226, 218, 255, 0.9);
   border-radius: 16px;
-  padding: 40px;
+  padding: 40px 40px 24px 40px;
   flex-shrink: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
@@ -212,7 +227,7 @@
 .categories-section-desktop .category-item.active::before {
   content: '';
   position: absolute;
-  left: -20px;
+  left: -40px;
   top: 0;
   bottom: 0;
   width: 6px;
@@ -244,5 +259,14 @@
     width: 410px;
     max-width: 410px;
     padding: 16px;
+  }
+}
+
+/* Mobile visibility fix: Ensure mobile category text is dark on light background */
+@media (max-width: 991px) {
+  .categories-section-mobile .mobile-category-description,
+  .categories-section-mobile .category-mobile-header h3,
+  .categories-section-mobile .mobile-category-note {
+    color: #2d1457 !important; /* Dark purple for contrast */
   }
 }
