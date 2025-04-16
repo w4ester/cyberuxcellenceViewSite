@@ -1,0 +1,15 @@
+**Summary of Changes:**
+
+This branch focuses on improving the visual appearance and spacing of elements in the website's header and between sections.
+
+1.  **Navbar Logo Spacing:**
+    *   **Goal:** To prevent the logo text in the navbar from appearing vertically compressed.
+    *   **Implementation:** Increased the overall height of the navbar by adjusting the `--nav-height` CSS variable in `css/global.css` from `72px` to `76px`. This provided more vertical space for the logo text to breathe.
+    *   **Additional Adjustment:** Added `position: relative;` and `top: 4px;` to the `.logo-wrapper` in `css/global.css` to nudge the logo down slightly, increasing the space above it.
+2.  **Section Overlap Fix:**
+    *   **Goal:** To remove a thin purple line that was visible between the "About" section (specifically the red quote block within it) and the "Categories" section.
+    *   **Implementation:** Reduced the negative `margin-top` on the `.categories-section` in `css/categories.css` from `-40px` to `-30px`. This reduced the amount the "Categories" section was pulled upwards, eliminating the visual artifact caused by the section overlap.
+
+These changes collectively improve the visual polish and overall aesthetic appeal of the website by addressing spacing and layout issues in the header and between key content sections.
+
+Is this explanation helpful?
