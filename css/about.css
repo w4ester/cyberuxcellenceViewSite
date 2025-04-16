@@ -13,10 +13,10 @@
     #af92f8 100%
   );
   color: var(--mg-nearly-black);
-  padding: var(--spacing-xxl) 0; /* Standardized spacing */
-  margin: 0; /* Ensure no margin */
+  padding: var(--spacing-xxl) 0 0 0; /* Remove bottom padding to avoid gap */
+  margin: 0;
   position: relative;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 0; /* Ensure no bottom margin */
   z-index: 1; /* Only if needed for overlays, else remove */
 }
 
@@ -112,8 +112,8 @@
     var(--mg-red) 100%
   );
   color: var(--white);
-  padding: 64px 0 56px 0; /* Balanced padding for visual fidelity */
-  margin-top: 0;
+  padding: 0 0 56px 0; /* Remove top padding to eliminate gap */
+  margin-top: 0; /* Ensure no top margin */
   margin-bottom: 0;
   position: relative;
   z-index: 5;
