@@ -1,3 +1,11 @@
+/* Force white for judges section headings/subheadings */
+.judges-section h2,
+.judges-section h3,
+.judges-section .section-title,
+.judges-section .subheading {
+  color: var(--white) !important;
+}
+
 /* 
  * Cyber UXcellence Awards - Judges Section Styles
  */
@@ -26,7 +34,7 @@
 }
 
 .judge-info-card {
-  background-color: var(--mg-dark-purple); /* Official dark purple */
+  background-color: var(--mg-nearly-black); /* Changed from dark purple to nearly black */
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xl);
   position: relative;

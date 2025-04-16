@@ -6,7 +6,7 @@
 /* --------------------------------------------------
  * CSS VARIABLES
  * -------------------------------------------------- */
-:root {
+ :root {
   /* Brand Colors */
   --mg-nearly-black: #231F20; /* Ensuring this is the correct near-black color from brand guide */
   --mg-dark-purple: #2C215A;
@@ -446,40 +446,36 @@ section:last-of-type {
 footer {
   background-color: var(--mg-nearly-black); /* Using the exact nearly-black from brand guide */
   color: var(--white);
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0 var(--spacing-md);
   margin-top: 0;
   position: relative;
   background-image: url('../assets/images/dot-grid-pattern.svg');
-  background-size: 34px 34px;
+  background-size: 28px 28px;
   background-repeat: repeat;
+  border-top: 3px solid var(--mg-orange);
 }
 
 footer .container {
   display: flex;
   justify-content: space-between;
- /* align-items: flex-start;*/
-  align-items: flex-end;/*or center depending on visual preference*/
-  /*gap: 40px;*/
-  gap: 3rem; /*adjust between left and right*/
-  padding-top: 2.5rem;
-  padding-bottom: 1.5rem;
-  /*max-width: var(--container-max-width);
-  padding: 0 var(--container-padding);
-  margin: 0 auto;*/
+  align-items: center;
+  gap: 2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 0.8rem;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  justify-content:flex-start;
-  /*align-items: flex-start;*/
-/*  max-width: 50%;*/
+  gap: 0.5rem;
+  align-items: flex-start;
 }
 
 .footer-logo {
-  max-width: 200px;
-  margin-bottom: 20px;
+  max-width: 100px;
+  margin-bottom: 0.5rem;
 }
 
 .copyright {
@@ -491,15 +487,139 @@ footer .container {
 
 .tagline {
   font-style: italic;
-  font-size: 1rem;
-  opacity: 0.9;
-  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  margin: 0;
 }
 
 .social-links {
   display: flex;
-  gap: 20px;
-  margin-top: 24px;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------
+ * Section Headings & Subheadings: White in Dark Sections
+ * -------------------------------------------------- */
+.about-section h1, .about-section h2, .about-section h3, .about-section .section-title, .about-section .subheading,
+.categories-section-desktop h1, .categories-section-desktop h2, .categories-section-desktop h3, .categories-section-desktop .section-title, .categories-section-desktop .subheading,
+.categories-section-mobile h1, .categories-section-mobile h2, .categories-section-mobile h3, .categories-section-mobile .section-title, .categories-section-mobile .subheading,
+.why-section h1, .why-section h2, .why-section h3, .why-section .section-title, .why-section .subheading,
+.judges-section h1, .judges-section h2, .judges-section h3, .judges-section .section-title, .judges-section .subheading,
+.faq-section h1, .faq-section h2, .faq-section h3, .faq-section .section-title, .faq-section .subheading {
+  color: var(--mg-dark-purple);
+}
+
+.timeline-section h1, .timeline-section h2, .timeline-section h3, .timeline-section .section-title, .timeline-section .subheading,
+.sponsorship-section h1, .sponsorship-section h2, .sponsorship-section h3, .sponsorship-section .section-title, .sponsorship-section .subheading {
+  color: var(--white);
+}
+
+/* --------------------------------------------------
+ * Award Categories Mobile Section Styles
+ * -------------------------------------------------- */
+.categories-section-mobile {
+  background: var(--mg-dark-purple);
+  color: var(--white);
+  padding: var(--spacing-xl) 0;
+}
+
+.categories-section-mobile .container {
+  max-width: 600px;
+}
+
+.categories-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.category-mobile-item {
+  background: rgba(226, 218, 255, 0.92);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(44,33,90,0.10);
+}
+
+.category-mobile-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 18px 12px 18px;
+  cursor: pointer;
+}
+
+.mobile-category-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--mg-dark-purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.mobile-category-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.category-mobile-header h3 {
+  color: var(--white) !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.mobile-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: rgba(255,255,255,0.22);
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+  padding: 0 18px;
+}
+
+.category-mobile-item.active .mobile-accordion-content {
+  max-height: 400px;
+  opacity: 1;
+  padding: 14px 18px 20px 18px;
+}
+
+.mobile-category-description {
+  color: var(--white) !important;
+  background: rgba(255,255,255,0.4);
+  font-size: 1.02rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.mobile-category-note {
+  font-style: italic;
+  text-align: center;
+  color: var(--mg-dark-purple);
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.mobile-nominate-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.mobile-nominate-btn-container .cta-button {
+  width: 100%;
+  max-width: 200px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
 }
 
 .social-link {
@@ -535,8 +655,8 @@ footer .container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-end; /* Or center for vertical alignment */
-  gap: 1.2rem;
+  justify-content: center;
+  gap: 0.6rem;
 }
 
 .footer-top-links {
@@ -563,9 +683,9 @@ footer .container {
 
 .footer-contact h3 {
   color: var(--white);
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
 }
 
 .footer-contact ul {
@@ -576,9 +696,9 @@ footer .container {
 }
 
 .footer-contact li {
-  margin-bottom: 8px;
+  margin-bottom: 0.3rem;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #e0e0e0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -592,6 +712,56 @@ footer .container {
 
 .footer-contact a:hover {
   opacity: 0.8;
+}
+
+.copyright-container {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.copyright a {
+  color: var(--mg-orange);
+  text-decoration: none;
+  margin: 0 0.8rem;
+  transition: color 0.2s;
+}
+
+.copyright a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  footer .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .footer-left {
+    align-items: center;
+  }
+  
+  .footer-right {
+    align-items: center;
+  }
+  
+  .footer-contact {
+    text-align: center;
+  }
+  
+  .footer-contact li {
+    justify-content: center;
+  }
 }
 
 /* Cookie Consent Banner */
@@ -831,6 +1001,21 @@ section + section {
 .mb-3 { margin-bottom: var(--spacing-md); }
 .mb-4 { margin-bottom: var(--spacing-lg); }
 .mb-5 { margin-bottom: var(--spacing-xl); }
+/* FORCE WHITE HEADINGS IN DARK SECTIONS */
+.about-section h1, .about-section h2, .about-section h3, .about-section .section-title, .about-section .subheading,
+.categories-section-desktop h1, .categories-section-desktop h2, .categories-section-desktop h3, .categories-section-desktop .section-title, .categories-section-desktop .subheading,
+.categories-section-mobile h1, .categories-section-mobile h2, .categories-section-mobile h3, .categories-section-mobile .section-title, .categories-section-mobile .subheading,
+.why-section h1, .why-section h2, .why-section h3, .why-section .section-title, .why-section .subheading,
+.judges-section h1, .judges-section h2, .judges-section h3, .judges-section .section-title, .judges-section .subheading,
+.faq-section h1, .faq-section h2, .faq-section h3, .faq-section .section-title, .faq-section .subheading {
+  color: var(--mg-dark-purple) !important;
+}
+
+.timeline-section h1, .timeline-section h2, .timeline-section h3, .timeline-section .section-title, .timeline-section .subheading,
+.sponsorship-section h1, .sponsorship-section h2, .sponsorship-section h3, .sponsorship-section .section-title, .sponsorship-section .subheading {
+  color: var(--white) !important;
+}
+
 
 .mt-1 { margin-top: var(--spacing-xs); }
 .mt-2 { margin-top: var(--spacing-sm); }
@@ -864,6 +1049,30 @@ section + section {
   top: 0;
   left: 0;
   right: 0;
+/* Brand heading/subheading colors by section background */
+
+/* 1. DARK PURPLE or NEARLY BLACK backgrounds: headings/subheadings white */
+.about-section h1, .about-section h2, .about-section h3, .about-section .section-title, .about-section .subheading,
+.categories-section-desktop h1, .categories-section-desktop h2, .categories-section-desktop h3, .categories-section-desktop .section-title, .categories-section-desktop .subheading,
+.categories-section-mobile h1, .categories-section-mobile h2, .categories-section-mobile h3, .categories-section-mobile .section-title, .categories-section-mobile .subheading,
+.judges-section h1, .judges-section h2, .judges-section h3, .judges-section .section-title, .judges-section .subheading {
+  color: var(--mg-dark-purple);
+}
+
+.timeline-section h1, .timeline-section h2, .timeline-section h3, .timeline-section .section-title, .timeline-section .subheading {
+  color: var(--white);
+}
+
+/* 2. LIGHT PURPLE backgrounds: headings/subheadings dark purple */
+.why-section h1, .why-section h2, .why-section h3, .why-section .section-title, .why-section .subheading {
+  color: var(--mg-dark-purple);
+}
+
+/* 3. RED or GRADIENT RED backgrounds: headings/subheadings white */
+.sponsorship-section h1, .sponsorship-section h2, .sponsorship-section h3, .sponsorship-section .section-title, .sponsorship-section .subheading {
+  color: var(--white);
+}
+
   bottom: 0;
   z-index: 9999;
   display: flex;

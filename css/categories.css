@@ -1,18 +1,36 @@
 /* 
- * Cyber UXcellence Awards - Categories Section Styles
+ * Cyber UXcellence Awards - Categories Section Styles (Refactored for Device Separation)
  */
 
-.categories-section {
-  position: relative;
-  background-color: var(--mg-dark-purple);
-  color: var(--white);
-  padding: 70px 0 100px; /* Reduced top padding to eliminate gap */
-  overflow: hidden;
-  margin-top: -46px; /* increased from 40 to 46px increased negative margin to pull it up */
+/* Top-level wrappers: Desktop visible ≥992px, Mobile visible <992px */
+.categories-section-desktop {
+  display: block;
+}
+.categories-section-mobile {
+  display: none;
 }
 
-/* Background diagonal pattern - properly implemented */
-.categories-section::before {
+@media (max-width: 991px) {
+  .categories-section-desktop {
+    display: none;
+  }
+  .categories-section-mobile {
+    display: block;
+  }
+}
+
+/* Desktop Section Styles */
+.categories-section-desktop {
+  position: relative;
+  z-index: 10;
+  background-color: var(--mg-dark-purple);
+  color: var(--white);
+  padding: var(--spacing-xxl) 0;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.categories-section-desktop::before {
   content: '';
   position: absolute;
   top: 0;
@@ -26,10 +44,10 @@
     transparent 2px,
     transparent 8px
   );
-  z-index: 1;
+  z-index: 0;
 }
 
-.categories-section .container {
+.categories-section-desktop .container {
   position: relative;
   z-index: 2;
   max-width: 1200px;
@@ -37,26 +55,24 @@
   padding: 0 20px;
 }
 
-.section-title {
-  font-size: 4.5rem;
+.categories-section-desktop .section-title {
+  font-size: 2.5rem; /* Smaller for better contrast */
   font-weight: 800;
   margin-bottom: 60px;
-  color: var(--white);
+  color: var(--mg-red); /* Brand red for strong contrast */
   text-align: left;
   letter-spacing: -0.5px;
 }
 
-/* Two-column layout - adjusted for larger card menu */
-.categories-container {
+.categories-section-desktop .categories-container {
   display: flex;
   justify-content: space-between;
-  gap: 40px; /* Gap between columns */
+  gap: 40px;
   align-items: flex-start;
 }
 
-/* Left Column: Category Description - adjusted width */
-.category-description {
-  flex: 0.8; /* Smaller to give more space for card menu */
+.categories-section-desktop .category-description {
+  flex: 0.8;
   display: flex;
   flex-direction: column;
   max-width: 400px;
@@ -64,24 +80,24 @@
   z-index: 2;
 }
 
-.category-icon {
+.categories-section-desktop .category-icon {
   margin-bottom: 30px;
   width: 100px;
   height: 100px;
 }
 
-.category-icon img {
+.categories-section-desktop .category-icon img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.category-content {
+.categories-section-desktop .category-content {
   display: flex;
   flex-direction: column;
 }
 
-.category-description-text {
+.categories-section-desktop .category-description-text {
   font-size: 1.75rem;
   line-height: 1.4;
   margin-bottom: 30px;
@@ -89,23 +105,23 @@
   color: var(--white);
 }
 
-.category-note {
+.categories-section-desktop .category-note {
   font-style: italic;
   color: rgba(255, 255, 255, 0.9);
   margin-top: 15px;
   margin-bottom: 15px;
   font-size: 1.2rem;
-  display: none; /* Hide by default, will be shown for Best Overall */
+  display: none;
   transition: opacity 0.3s ease;
   opacity: 0;
   font-weight: 500;
 }
 
-.nominate-btn-container {
+.categories-section-desktop .nominate-btn-container {
   margin-top: 40px;
 }
 
-.nominate-btn {
+.categories-section-desktop .nominate-btn {
   display: inline-block;
   background-color: var(--mg-red);
   color: var(--white);
@@ -120,23 +136,41 @@
   transition: all 0.3s ease;
 }
 
-.nominate-btn:hover {
+.categories-section-desktop .nominate-btn:hover {
   background-color: #e63946;
   transform: translateY(-2px);
 }
+/* Center category icon and nomination button in desktop left column */
+.categories-section-desktop .category-description {
+  align-items: center;
+  text-align: center;
+}
 
-/* Right Column: Categories List - enlarged and more stylish like the screenshot */
-.categories-list {
-  width: 650px; /* Increased width */
+.categories-section-desktop .category-icon {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.categories-section-desktop .nominate-btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.categories-section-desktop .categories-list {
+  width: 650px;
   max-width: 650px;
-  background-color: rgba(226, 218, 255, 0.9); /* Lighter purple for better contrast */
+  background-color: rgba(226, 218, 255, 0.9);
   border-radius: 16px;
   padding: 40px;
   flex-shrink: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.category-item {
+.categories-section-desktop .category-item {
   margin-bottom: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -144,105 +178,71 @@
   position: relative;
 }
 
-.category-item h3 {
-  color: var(--mg-dark-purple);
+.categories-section-desktop .category-item h3 {
+  color: var(--mg-light-purple);
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 15px;
   transition: color 0.3s ease;
 }
 
-.category-item.active h3 {
+.categories-section-desktop .category-item.active h3 {
   color: var(--mg-red);
 }
 
-.category-item:hover:not(.active) h3 {
+.categories-section-desktop .category-item:hover:not(.active) h3 {
   color: #4a3982;
 }
 
-.divider {
+.categories-section-desktop .divider {
   height: 2px;
-  background-color: #b6aadb; /* Lighter divider */
+  background-color: #b6aadb;
   width: 100%;
   margin-top: 15px;
 }
 
-.category-item:last-child .divider {
+.categories-section-desktop .category-item:last-child .divider {
   display: none;
 }
 
-/* Highlight active category with red bar like in screenshot */
-.category-item.active {
+/* Highlight active category with red bar */
+.categories-section-desktop .category-item.active {
   position: relative;
 }
-
-.category-item.active::before {
+.categories-section-desktop .category-item.active::before {
   content: '';
   position: absolute;
   left: -20px;
   top: 0;
   bottom: 0;
-  width: 6px; /* Wider red bar */
+  width: 6px;
   background-color: var(--mg-red);
   border-radius: 3px;
 }
 
-/* Mobile styles */
-@media (max-width: 991px) {
-  .categories-container {
-    flex-direction: column;
-    gap: var(--spacing-lg);
+/* Responsive: Adjust desktop section for smaller screens (not mobile) */
+@media (max-width: 1200px) {
+  .categories-section-desktop .container {
+    max-width: 1000px;
   }
-  
-  .categories-list {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 40px;
-  }
-  
-  .section-title {
-    font-size: 3rem;
-    text-align: center;
-  }
-  
-  .category-description-text {
-    font-size: 1.5rem;
-  }
-  
-  .category-description {
-    max-width: 100%;
-    align-items: center;
-    text-align: center;
+  .categories-section-desktop .categories-list {
+    width: 500px;
+    max-width: 500px;
+    padding: 30px;
   }
 }
 
-@media (max-width: 768px) {
-  .categories-section {
-    padding: 50px 0 70px;
-    margin-top: -30px; /* Adjusted for mobile */
+/* Further reduce for tablets just above mobile cutoff */
+@media (max-width: 1024px) and (min-width: 992px) {
+  .categories-section-desktop .categories-container {
+    gap: 16px;
   }
-
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+  .categories-section-desktop .category-description {
+    max-width: 290px;
   }
-  
-  .category-description-text {
-    font-size: 1.25rem;
-  }
-  
-  .category-item h3 {
-    font-size: 1.5rem;
-  }
-  
-  .category-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 25px;
-  }
-
-  .nominate-btn {
-    font-size: 1.125rem;
-    padding: 14px 28px;
+  .categories-section-desktop .categories-list {
+    width: 410px;
+    max-width: 410px;
+    padding: 16px;
   }
 }

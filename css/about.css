@@ -6,8 +6,11 @@
   /* Purple gradient background */
   background: linear-gradient(120deg, #9370DB, #E6E6FA);
   color: var(--mg-nearly-black);
-  padding: var(--spacing-xxl) 0 var(--spacing-xl); /* Increased bottom padding */
+  padding: var(--spacing-xxl) 0; /* Standardized spacing */
+  margin: 0; /* Ensure no margin */
   position: relative;
+  margin-bottom: var(--spacing-xl);
+  z-index: 1; /* Only if needed for overlays, else remove */
 }
 
 .about-section .container {
@@ -97,11 +100,11 @@
 .quote-section {
   background-color: var(--mg-red);
   color: var(--white);
-  padding: var(--spacing-xl) 0 var(--spacing-xxl); /* Increased bottom padding */
-  margin-top: -30px; /* Shift upward to cover gap */
-  margin-bottom: 0; /* Remove bottom margin */
+  padding: 96px 0 88px 0; /* Extra tall top and bottom padding for bigger visual impact */
+  margin-top: 0;
+  margin-bottom: 0;
   position: relative;
-  z-index: 5; /* Ensure it appears above other elements */
+  z-index: 5;
 }
 
 .quote-container {
@@ -109,9 +112,9 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-xl);
-  max-width: 1100px;
+  max-width: 1320px; /* Wider section to bridge the gap */
   margin: 0 auto;
-  padding: 0 20px; /* Added padding to ensure consistent spacing */
+  padding: 0 32px; /* Slightly more side padding for visual space */
 }
 
 .quote-content {
@@ -131,15 +134,15 @@
 }
 
 blockquote {
-  font-size: 1.5rem;
-  line-height: 1.4;
+  font-size: 1.7rem; /* Slightly larger for prominence */
+  line-height: 1.45;
   margin: 0 0 var(--spacing-md);
   font-weight: 300;
 }
 
 .attribution {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.25rem; /* Larger attribution for emphasis */
 }
 
 .quote-author {
@@ -178,7 +181,7 @@ blockquote {
   }
   
   .quote-section {
-    margin-top: -20px; /* Adjusted for tablet */
+    margin-top: 0; /* Remove negative margin */
   }
   
   .quote-container {
@@ -214,8 +217,8 @@ blockquote {
   }
   
   .quote-section {
-    margin-top: -15px; /* Adjusted for mobile */
-    padding: var(--spacing-xl) 0 var(--spacing-xl); /* Adjusted padding */
+    margin-top: 0; /* Remove negative margin */
+    padding: var(--spacing-xl) 0; /* Standardized padding */
   }
   
   .quote-author {

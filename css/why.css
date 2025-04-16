@@ -25,13 +25,22 @@
 
 /* Benefit card styling */
 .benefit-card {
-  background-color: transparent;
+  background-color: var(--mg-dark-purple);
+  color: var(--white);
+  border-radius: 16px;
   padding: var(--spacing-lg);
   position: relative;
+  box-shadow: 0 2px 8px rgba(44,33,90,0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* .benefit-card:hover removed: no hover effect for non-clickable cards */
+
 .benefit-card h3 {
-  color: var(--mg-dark-purple);
+  color: var(--mg-red); /* Use brand red for subheading as requested */
   margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-sm);
   font-size: 1.4rem;
@@ -40,7 +49,7 @@
 }
 
 .benefit-card p {
-  color: #444;
+  color: var(--white);
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 0;
@@ -60,8 +69,8 @@
   width: 100%;
   height: auto;
   max-width: 60px;
-  /* Original red color - no filter needed as the icons are already red in their source files */
-  filter: none;
+  /* Make icons white to be visible on dark background */
+  filter: brightness(0) invert(1);
 }
 
 /* CTA container styling */

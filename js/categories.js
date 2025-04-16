@@ -1,79 +1,76 @@
 /**
- * Categories Section JavaScript
- * Enhanced version with smooth transitions and improved interactions
+ * Categories Section JavaScript (Refactored for Device Separation)
  */
-
-// Import the shared HubSpot form initialization function
 import { initHubSpotForm } from './hubspot-form.js';
 
 export default function initCategories() {
-  // Load the categories section HTML
+  // Decide which section to load
+  const isMobile = () => window.innerWidth <= 991;
+  let currentSection = null;
+
+  // Load the appropriate section HTML
   const loadCategoriesSection = async () => {
     try {
-      const response = await fetch('sections/categories.html');
+      const sectionFile = isMobile()
+        ? 'sections/categories-mobile.html'
+        : 'sections/categories.html';
+      const response = await fetch(sectionFile);
       const html = await response.text();
       document.getElementById('categories').innerHTML = html;
-      
-      // Initialize category tabs after content is loaded
-      initCategoryTabs();
-      initNominationModal();
-      initAnimations();
+      currentSection = isMobile() ? 'mobile' : 'desktop';
+
+      // Initialize logic for the correct section
+      if (currentSection === 'desktop') {
+        initDesktopTabs();
+        initDesktopNominationModal();
+        initDesktopAnimations();
+      } else {
+        initMobileAccordion();
+        initMobileNominationModal();
+      }
     } catch (error) {
       console.error('Error loading categories section:', error);
     }
   };
-  
-  // Initialize category tab functionality
-  const initCategoryTabs = () => {
+
+  // Desktop logic: tab/details
+  const initDesktopTabs = () => {
     const categoryItems = document.querySelectorAll('.category-item');
     const categoryIconImg = document.getElementById('category-icon-img');
     const categoryText = document.getElementById('category-text');
     const categoryNote = document.getElementById('category-note');
     const nominateContainer = document.getElementById('nominate-container');
-    
+
     if (!categoryItems.length) return;
-    
-    // Handle tab clicks
+
     categoryItems.forEach(item => {
       item.addEventListener('click', () => {
-        // If already active, do nothing
         if (item.classList.contains('active')) return;
-        
-        // Update active tab
+
         categoryItems.forEach(tab => tab.classList.remove('active'));
-        
-        // Add a small delay for better visual effect
         setTimeout(() => {
           item.classList.add('active');
-          
-          // Get the category data
-          const categoryId = item.getAttribute('data-category');
           const iconSrc = item.getAttribute('data-icon');
           const description = item.getAttribute('data-description');
           const note = item.getAttribute('data-note');
           const showNominate = item.getAttribute('data-nominate') === 'true';
-          
-          // Fade out content first
+
+          // Fade out content
           if (categoryText) categoryText.style.opacity = '0';
           if (categoryIconImg) categoryIconImg.style.opacity = '0';
           if (nominateContainer) nominateContainer.style.opacity = '0';
           if (categoryNote) categoryNote.style.opacity = '0';
-          
-          // Update content after short delay
+
           setTimeout(() => {
-            // Update icon and description
             if (categoryIconImg && iconSrc) {
               categoryIconImg.src = `assets/images/${iconSrc}`;
               categoryIconImg.alt = `${item.querySelector('h3').textContent} Icon`;
               categoryIconImg.style.opacity = '1';
             }
-            
             if (categoryText && description) {
               categoryText.textContent = description;
               categoryText.style.opacity = '1';
             }
-            
-            // Show/hide note
             if (categoryNote) {
               if (note && note.trim() !== '') {
                 categoryNote.textContent = note;
@@ -84,8 +81,6 @@ export default function initCategories() {
                 categoryNote.style.opacity = '0';
               }
             }
-            
-            // Show/hide nominate button
             if (nominateContainer) {
               if (showNominate) {
                 nominateContainer.style.display = 'block';
@@ -98,28 +93,22 @@ export default function initCategories() {
         }, 50);
       });
     });
-    
-    // Set initial state - find active category and trigger display
+
+    // Set initial state
     const activeCategory = document.querySelector('.category-item.active');
     if (activeCategory) {
-      // Get the category data from the active tab
-      const categoryId = activeCategory.getAttribute('data-category');
       const iconSrc = activeCategory.getAttribute('data-icon');
       const description = activeCategory.getAttribute('data-description');
       const note = activeCategory.getAttribute('data-note');
       const showNominate = activeCategory.getAttribute('data-nominate') === 'true';
-      
-      // Update icon and description
+
       if (categoryIconImg && iconSrc) {
         categoryIconImg.src = `assets/images/${iconSrc}`;
         categoryIconImg.alt = `${activeCategory.querySelector('h3').textContent} Icon`;
       }
-      
       if (categoryText && description) {
         categoryText.textContent = description;
       }
-      
-      // Show/hide note
       if (categoryNote) {
         if (note && note.trim() !== '') {
           categoryNote.textContent = note;
@@ -128,35 +117,55 @@ export default function initCategories() {
           categoryNote.style.display = 'none';
         }
       }
-      
-      // Show/hide nominate button
       if (nominateContainer) {
         nominateContainer.style.display = showNominate ? 'block' : 'none';
       }
     }
   };
-  
-  // Initialize animations
-  const initAnimations = () => {
-    // Add hover effects to category items
+
+  // Desktop: nomination modal
+  const initDesktopNominationModal = () => {
+    const nominateButtons = document.querySelectorAll('.nominate-btn');
+    if (nominateButtons.length === 0) return;
+    nominateButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const activeCategory = document.querySelector('.category-item.active');
+        let categoryName = "";
+        if (activeCategory) {
+          categoryName = activeCategory.querySelector('h3').textContent;
+        }
+        const mainModal = document.querySelector('.nomination-modal');
+        if (mainModal) {
+          const modalTitle = mainModal.querySelector('h2');
+          if (modalTitle && categoryName) {
+            modalTitle.textContent = `Nominate Now: ${categoryName}`;
+          } else if (modalTitle) {
+            modalTitle.textContent = "Nominate Now";
+          }
+          mainModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          initHubSpotForm();
+        }
+      });
+    });
+  };
+
+  // Desktop: animations
+  const initDesktopAnimations = () => {
     const categoryItems = document.querySelectorAll('.category-item');
-    
     categoryItems.forEach(item => {
       item.addEventListener('mouseenter', () => {
         if (!item.classList.contains('active')) {
-          // Add subtle hover effect
           item.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
         }
       });
-      
       item.addEventListener('mouseleave', () => {
         if (!item.classList.contains('active')) {
           item.style.backgroundColor = 'transparent';
         }
       });
     });
-    
-    // Add shimmer effect to nomination button on hover
     const nominateBtn = document.querySelector('.nominate-btn');
     if (nominateBtn) {
       nominateBtn.addEventListener('mouseenter', () => {
@@ -169,48 +178,62 @@ export default function initCategories() {
       });
     }
   };
-  
-  // Initialize nomination modal/popup
-  const initNominationModal = () => {
+
+  // Mobile logic: single-open accordion
+  const initMobileAccordion = () => {
+    const items = document.querySelectorAll('.category-mobile-item');
+    items.forEach(item => {
+      const header = item.querySelector('.category-mobile-header');
+      header.addEventListener('click', () => {
+        if (item.classList.contains('active')) {
+          item.classList.remove('active');
+        } else {
+          items.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+        }
+      });
+    });
+  };
+
+  // Mobile: nomination modal
+  const initMobileNominationModal = () => {
     const nominateButtons = document.querySelectorAll('.nominate-btn');
-    
     if (nominateButtons.length === 0) return;
-    
-    // Update all nomination buttons to use the main nomination modal
     nominateButtons.forEach(button => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        // Get the current active category
-        const activeCategory = document.querySelector('.category-item.active');
+        const activeItem = button.closest('.category-mobile-item');
         let categoryName = "";
-        
-        if (activeCategory) {
-          categoryName = activeCategory.querySelector('h3').textContent;
+        if (activeItem) {
+          const h3 = activeItem.querySelector('h3');
+          if (h3) categoryName = h3.textContent;
         }
-        
-        // Show the main nomination modal instead of the category-specific one
         const mainModal = document.querySelector('.nomination-modal');
         if (mainModal) {
-          // Update modal title to include category if relevant
           const modalTitle = mainModal.querySelector('h2');
           if (modalTitle && categoryName) {
             modalTitle.textContent = `Nominate Now: ${categoryName}`;
           } else if (modalTitle) {
             modalTitle.textContent = "Nominate Now";
           }
-          
-          // Trigger the main modal
           mainModal.classList.add('active');
-          document.body.style.overflow = 'hidden'; // Prevent scrolling
-          
-          // Initialize HubSpot form
+          document.body.style.overflow = 'hidden';
           initHubSpotForm();
         }
       });
     });
   };
-  
+
+  // Reload section on resize crossing the desktop/mobile threshold
+  let lastMobile = isMobile();
+  window.addEventListener('resize', () => {
+    const nowMobile = isMobile();
+    if (nowMobile !== lastMobile) {
+      loadCategoriesSection();
+      lastMobile = nowMobile;
+    }
+  });
+
   // Initialize
   loadCategoriesSection();
 }
