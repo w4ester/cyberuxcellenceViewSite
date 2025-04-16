@@ -31,12 +31,12 @@
 .timeline-line {
   position: absolute;
   width: 4px;
-  background-color: var(--mg-nearly-black); /* Official MG Nearly Black #231F20 */
+  background-color: var(--white); /* Use brand white for better visibility */
   top: 0;
   bottom: 0;
   left: 50%;
   margin-left: -2px;
-  z-index: 1;
+  z-index: 1; /* Keep line below dots */
   --progress: 0%;
   --active-height: 0%;
 }

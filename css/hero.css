@@ -6,7 +6,7 @@
   position: relative;
   background-color: var(--mg-dark-purple);
   color: var(--white);
-  padding: 160px 0 120px; /* Increased padding, especially at the top */
+  padding: calc(var(--spacing-xxl) * 1.5) 0; /* Using variable multiplier for emphasis */
   overflow: hidden;
   min-height: calc(90vh - var(--nav-height));
   display: flex;
@@ -135,7 +135,7 @@
 @media (max-width: 768px) {
   .hero-section {
     min-height: 550px;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xxl) 0; /* Using standard section spacing variable */
   }
   
   .hero-section h1 {
