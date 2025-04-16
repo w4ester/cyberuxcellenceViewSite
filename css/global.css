@@ -328,6 +328,7 @@ section:last-of-type {
 }
 
 .powered-by {
+  padding-bottom: 10px;
   font-size: 0.60rem;
   color: var(--white);
   opacity: 0.7;

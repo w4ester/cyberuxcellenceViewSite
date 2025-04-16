@@ -3,8 +3,15 @@
  */
 
 .about-section {
-  /* Purple gradient background */
-  background: linear-gradient(120deg, #9370DB, #E6E6FA);
+  /* Purple-White Brand Gradient Background (centered white light) */
+  background: linear-gradient(
+    105deg,
+    #af92f8 0%,
+    #c3b3f6 22%,
+    #ffffff 49%,
+    #c3b3f6 78%,
+    #af92f8 100%
+  );
   color: var(--mg-nearly-black);
   padding: var(--spacing-xxl) 0; /* Standardized spacing */
   margin: 0; /* Ensure no margin */
@@ -98,13 +105,19 @@
 
 /* Quote Section */
 .quote-section {
-  background-color: var(--mg-red);
+  /* Orange-Red Brand Gradient for CEO Quote */
+  background: linear-gradient(
+    90deg,
+    var(--mg-orange) 0%,
+    var(--mg-red) 100%
+  );
   color: var(--white);
-  padding: 96px 0 88px 0; /* Extra tall top and bottom padding for bigger visual impact */
+  padding: 64px 0 56px 0; /* Balanced padding for visual fidelity */
   margin-top: 0;
   margin-bottom: 0;
   position: relative;
   z-index: 5;
+  overflow: hidden;
 }
 
 .quote-container {
@@ -112,37 +125,53 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-xl);
-  max-width: 1320px; /* Wider section to bridge the gap */
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 32px; /* Slightly more side padding for visual space */
+  padding: 0 32px;
+  position: relative;
 }
 
 .quote-content {
-  flex: 2.5; /* Adjusted from 2.8 to balance with larger image */
+  flex: 2.5;
   position: relative;
-  padding-left: 20px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .quote-mark {
-  font-size: 5rem;
+  font-size: 4.5rem;
   line-height: 0;
-  position: absolute;
-  top: 0;
-  left: -10px;
-  opacity: 0.5;
+  position: relative;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 8px;
   font-family: serif;
+  left: 0;
+}
+
+/* Divider below quote mark */
+.quote-divider {
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+  margin-bottom: 18px;
+  margin-top: 0;
+  border: none;
 }
 
 blockquote {
-  font-size: 1.7rem; /* Slightly larger for prominence */
-  line-height: 1.45;
-  margin: 0 0 var(--spacing-md);
-  font-weight: 300;
+  font-size: 1.55rem;
+  line-height: 1.5;
+  margin: 0 0 18px 0;
+  font-weight: 400;
 }
 
 .attribution {
-  font-weight: 600;
-  font-size: 1.25rem; /* Larger attribution for emphasis */
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 12px;
+  color: var(--white);
 }
 
 .quote-author {
