@@ -4,6 +4,61 @@
 .judges-section .section-title,
 .judges-section .subheading {
   color: var(--white) !important;
+.judges-section .section-subheading {
+
+/* Force Judges container and header to use full width for one-line heading */
+.judges-section .container, .judges-section .section-header {
+  max-width: 100vw;
+  width: 100vw;
+  margin-left: calc(-1 * (100vw - 100%) / 2);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+/* Make Meet the Judges heading one line on desktop, wrap on mobile */
+.judges-section .section-header h2 {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 600px) {
+  .judges-section .section-header h2 {
+    white-space: normal;
+    font-size: 2rem;
+  }
+}
+
+
+/* Responsive one-line subheading for Judges section */
+.judges-section .section-subheading {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100vw;
+}
+
+@media (max-width: 768px) {
+  .judges-section .section-subheading {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .judges-section .section-subheading {
+    font-size: 0.95rem;
+  }
+}
+
+  white-space: nowrap;
+}
+
 }
 
 /* 
@@ -34,7 +89,7 @@
 }
 
 .judge-info-card {
-  background-color: var(--mg-nearly-black); /* Changed from dark purple to nearly black */
+  background-color: var(--mg-dark-purple); /* Changed from nearly black to dark purple for brand consistency */
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xl);
   position: relative;
