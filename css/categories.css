@@ -194,7 +194,7 @@
 }
 
 .categories-section-desktop .category-item h3 {
-  color: var(--mg-light-purple);
+  color: var(--mg-dark-purple) !important;
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 15px;
@@ -206,7 +206,7 @@
 }
 
 .categories-section-desktop .category-item:hover:not(.active) h3 {
-  color: #4a3982;
+  color: #1a1335; /* Slightly darker than dark-purple for hover */
 }
 
 .categories-section-desktop .divider {

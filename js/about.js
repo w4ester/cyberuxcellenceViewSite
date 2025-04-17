@@ -44,12 +44,11 @@ export default function initAbout() {
           if (entry.isIntersecting) {
             entry.target.classList.add('animated', 'fade-in');
             
-            // Animate each checkmark item with delay
+            // Make checkmark items visible immediately without animation
             if (checkmarkItems.length) {
-              checkmarkItems.forEach((item, index) => {
-                setTimeout(() => {
-                  item.classList.add('animated', 'slide-in');
-                }, 200 * (index + 1));
+              checkmarkItems.forEach((item) => {
+                // Add only opacity 1 without animation
+                item.style.opacity = '1';
               });
             }
             
