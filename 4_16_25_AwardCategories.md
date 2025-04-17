@@ -20,7 +20,8 @@ You are an LLM tasked with aligning the **Awards Category** section.
 - [x] Awards Category section mobile needs dark purple background to see text
 - [x] Awards Category section non-mobile version needs to have red line highlighting when category is clicked and visible to -40px to the left for edge of shape to be met ... 
 - [ ] Awards Category section header needs to be visibe and also match font and text as all of the section headers
-- [ ] Awards Category section menu non mobile needs to have less padding on bottom just a little bit to match the top to text padding on the top of menu ... as for clarity if needed before working.  
+- [x] Awards Category section menu non mobile needs to have less padding on bottom just a little bit to match the top to text padding on the top of menu ... as for clarity if needed before working.  
+- [ ] need to add padding to mobile and non mobile for section at the bottom to match the top of the section to the bottom of the section ... as for clarity if needed before working.  
 
 
 Visible Header

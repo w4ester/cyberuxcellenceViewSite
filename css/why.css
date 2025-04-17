@@ -3,8 +3,8 @@
  */
 
 .why-section {
-  background-color: var(--mg-light-purple); /* Using the brand's light purple */
-  background-image: linear-gradient(to right, var(--mg-light-purple), var(--white)); /* Purple-White Gradient */
+  background-color: var(--mg-light-purple);
+  background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.25) 40%, rgba(134,98,255,0.9) 100%);
   padding: var(--spacing-xxl) 0;
   position: relative;
   overflow: hidden;
@@ -15,27 +15,34 @@
   content: none; /* Remove the diagonal pattern */
 }
 
-/* Grid layout for benefit cards */
+/* 2x2 grid for benefits */
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 48px 56px;
+  align-items: stretch;
+  justify-items: stretch;
   margin-bottom: var(--spacing-xl);
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-/* Benefit card styling */
-.benefit-card {
-  background-color: var(--mg-dark-purple);
-  color: var(--white);
-  border-radius: 16px;
-  padding: var(--spacing-lg);
-  position: relative;
-  box-shadow: 0 2px 8px rgba(44,33,90,0.08);
+/* Benefit item: column flex, align left, vertically center inside grid cell */
+.benefit-item {
   display: flex;
   flex-direction: column;
-  min-height: 240px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  gap: 12px;
 }
+
+
+/* Remove obsolete .benefit-card styles: cards are gone */
 
 /* .benefit-card:hover removed: no hover effect for non-clickable cards */
 
@@ -57,20 +64,22 @@
 
 /* Benefit icon styling */
 .benefit-icon {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-bottom: var(--spacing-sm);
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
 }
 
 .benefit-icon img {
   width: 100%;
   height: auto;
-  max-width: 60px;
-  /* Make icons white to be visible on dark background */
-  filter: brightness(0) invert(1);
+  max-width: 56px;
+  /* Brand red icon: remove white filter and use red. If SVG supports, use currentColor */
+  filter: none;
+  color: var(--mg-red);
+  fill: var(--mg-red);
 }
 
 /* CTA container styling */
@@ -102,8 +111,8 @@
   .benefits-grid {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+    max-width: 100%;
   }
-  
   .why-section h2 {
     font-size: 2.5rem;
   }
@@ -112,19 +121,14 @@
 @media (max-width: 768px) {
   .benefits-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 28px;
+    max-width: 100%;
   }
-  
-  .benefit-card {
-    padding: var(--spacing-md);
-  }
-  
   .why-section h2 {
     font-size: 2rem;
   }
-  
   .benefit-icon {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
   }
 }
