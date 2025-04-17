@@ -9,12 +9,12 @@ You are an LLM tasked with polishing the **Footer**.
 3. Tick off each change in code.  
 
 ## Plan
-- [ ] Swap vertical logo for white horizontal logo.  
-- [ ] Add LinkedIn icon + “Follow us” CTA.  
-- [ ] Remove “email” and “website” text, replace with big “Visit Mindgrub” button.  
+- [x] Swap vertical logo for white horizontal logo.
+- [x] Add LinkedIn icon + "Follow us" CTA.
+- [x] Remove "email" and "website" text, replace with big "Visit Mindgrub" button.
 
 ## Checklist
-- [ ] Use white horizontal logo (not vertical)  
-- [ ] Add “Follow us” CTA with LinkedIn logo  
-- [ ] Remove “email” and “website” text  
-- [ ] Add big “Visit Mindgrub” button aligned and styled  
+- [x] Use white horizontal logo (not vertical)  /assets/images/Logo Exports/Horizontal Logos/ UXcellence-Awards-Logo-White-Horizontal.svg
+- [x] Add "Follow us" CTA with LinkedIn logo  https://www.linkedin.com/showcase/cyber-uxcellence/about/
+- [x] Remove "email" and "website" text
+- [x] Add big "Visit Mindgrub" button aligned and styled  mindgrub.com

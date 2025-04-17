@@ -72,16 +72,21 @@ const initNominationModal = () => {
         }
         
         // If the button is a link but not linking to #nominate, don't trigger the popup
-        if (newButton.tagName === 'A' && 
-            newButton.getAttribute('href') !== '#nominate' && 
-            !newButton.getAttribute('href').includes('#nominate') && 
+        if (newButton.tagName === 'A' &&
+            newButton.getAttribute('href') !== '#nominate' &&
+            !newButton.getAttribute('href').includes('#nominate') &&
             !newButton.classList.contains('nominate-btn')) {
           return;
         }
-        
+
         // Prevent default link behavior
         e.preventDefault();
-        
+
+        // Clear active category if NOT a category button
+        if (!newButton.classList.contains('nominate-btn')) {
+          document.querySelectorAll('.category-item.active').forEach(el => el.classList.remove('active'));
+        }
+
         // Update modal title if relevant
         const activeCategory = document.querySelector('.category-item.active');
         if (activeCategory) {
