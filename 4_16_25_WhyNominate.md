@@ -10,12 +10,14 @@ You are an LLM tasked with cleaning up the **Why Nominate** section.
 
 ## Plan
 - [ ] Remove all subheadings.  
+- [ ] Remove the dark purple cards for this section. No cards just the headings for why to nmominate and the text with icon example Industry Recognition & Credibility
 - [ ] Remove the “Nominate” button here only.  
 - [ ] Apply purple background with white stripe down the middle.  
-- [ ] Convert “Media and Exposure” text into a call‑out.  
+- [ ] Update Icons (Branddy is sharing).  
 
 ## Checklist
-- [ ] Remove subheadings  
-- [ ] Remove Nominate button from this section  
-- [ ] Purple with white light down the middle styling  
-- [ ] Change “Media and Exposure” to a call‑out style  
+- [x] Remove subheadings  
+- [x] Remove Nominate button from this section  
+- [x] Purple with white light down the middle styling  
+- [x] Remove Dark Purple Boxes and just leave titles “Media and Exposure” and text 
+- [ ] Add the new icons that Branddy is sharing from Canva (.svg)  
