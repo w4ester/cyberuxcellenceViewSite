@@ -94,6 +94,11 @@
   box-shadow: var(--shadow-md);
   transition: transform 0.3s ease;
   border-left: 4px solid var(--mg-nearly-black); /* Official MG Nearly Black #231F20 */
+  max-width: 600px;
+  min-height: 180px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Add content transition on active */
@@ -117,6 +122,9 @@
   background-color: var(--mg-red); /* Official red */
 }
 
+.timeline-content h3, .timeline-content p {
+  color: var(--mg-dark-purple) !important;
+}
 .timeline-content h3 {
   color: var(--mg-dark-purple);
   margin-bottom: var(--spacing-sm);
@@ -184,4 +192,14 @@
   .timeline-section h2 {
     font-size: 2rem;
   }
+@media (max-width: 768px) {
+  .timeline-content {
+    max-width: 100%;
+    min-height: 180px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 }

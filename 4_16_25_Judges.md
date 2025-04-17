@@ -17,6 +17,18 @@ You are an LLM tasked with updating the **Meet the Judges** grid.
 - [ ] Move “Meet the Judges” subheader to be one line  
 
 
+## What Has Been Done (as of this update)
+- Updated the Judges section card backgrounds to use the brand dark purple color.
+- Ensured the "Meet the Judges" subheading is rendered on a single line in HTML and tried multiple CSS approaches to force it to stay one line responsively.
+- Attempted to force the "Meet the Judges" headline (h2) to stay on one line at desktop widths, and documented all CSS/HTML fixes attempted in the section below (see "Tried but not working yet").
+
+## What Will Be Revisited Later
+- Will return to solve the issue of forcing the "Meet the Judges" headline to always display one long line at all desktop/tablet widths without breaking, once other priority updates are finished.
+- May further explore flexbox/grid layout, advanced responsive typography, or structural changes to the container/header if needed.
+- Will retest and refine after other layout/design changes are complete to ensure heading/subheading display remains optimal and on-brand.
+
+
+
 ## Tried but not working yet
 
 ### Heading on One Line Attempts
