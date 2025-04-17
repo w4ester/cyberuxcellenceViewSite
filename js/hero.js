@@ -19,19 +19,12 @@ export default function initHero() {
     }
   };
   
-  // Add parallax effect for background shield
+  // Commented out parallax effect as per new design requirements
+  // Now the background icon stays fixed in place with CSS transform
   const initParallax = () => {
-    const bgIcon = document.querySelector('.hero-bg-icon');
-    
-    if (bgIcon) {
-      window.addEventListener('scroll', () => {
-        // Only apply parallax within the first 800px of scrolling
-        if (window.scrollY < 800) {
-          const scrollValue = window.scrollY * 0.15;
-          bgIcon.style.transform = `translateY(calc(-50% + ${scrollValue}px))`;
-        }
-      });
-    }
+    // Parallax effect removed to keep icon static as requested
+    // The background icon now stays fixed at -45 degree angle via CSS
+    console.log("Parallax effect disabled - icon is now fixed in place");
   };
 
   // Add subtle animation to hero section

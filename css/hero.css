@@ -7,12 +7,13 @@
   background-color: var(--mg-dark-purple);
   color: var(--white);
   padding: calc(var(--spacing-xxl) * 1.5) 0; /* Using variable multiplier for emphasis */
-  overflow: hidden;
+  overflow: hidden; /* Important - keeps the background icon contained */
   min-height: calc(90vh - var(--nav-height));
   display: flex;
   align-items: center;
   /* Remove any top margin to eliminate gap */
   margin-top: 0;
+  z-index: 1; /* Ensure proper stacking context */
 }
 
 /* Apply diagonal pattern directly to hero section */
@@ -35,27 +36,24 @@
 
 .hero-section .hero-bg-icon {
   position: absolute; /* Position relative to the hero section */
-  bottom: -50px; 
+  bottom: -50px;
   right: 0;
-  transform: rotate(-45deg); /* Rotate to point toward the text */
+  transform: rotate(-45deg); /* Fixed at this angle - no rotation */
   width: 600px; /* Enlarged */
   height: 600px; /* Enlarged */
-  background-image: url('../assets/images/shield-icon.svg');
+  background-image: url('../assets/images/Custom Icon Exports/White/SVG/Best Overall UX in Cybersecurity-white.svg');
   background-repeat: no-repeat;
   background-size: contain;
-  z-index: 1;
-  opacity: 0.25; /* More transparent */
-  animation: rotateShield 30s infinite linear; /* Slow constant rotation */
+  z-index: 0; /* Placed below content */
+  opacity: 0.4; /* Slightly muted to match mockup */
+  pointer-events: none; /* Ensures icon doesn't interfere with interactions */
+  
+  /* Fix to ensure icon stays contained within section when scrolling */
+  will-change: transform; /* Optimize for transform changes */
+  backface-visibility: hidden; /* Prevent any rendering glitches */
 }
 
-@keyframes rotateShield {
-  from {
-    transform: rotate(-45deg);
-  }
-  to {
-    transform: rotate(315deg); /* Full 360 degree rotation */
-  }
-}
+/* Animation keyframes removed as icon is no longer rotating */
 
 .hero-section .container {
   position: relative;
@@ -122,7 +120,7 @@
   .hero-section .hero-bg-icon {
     width: 400px;
     height: 400px;
-    opacity: 0.2;
+    opacity: 0.35; /* Slightly muted to match mockup */
     right: -50px;
     bottom: -30px;
   }
@@ -162,7 +160,7 @@
     bottom: -20px;
     width: 300px;
     height: 300px;
-    opacity: 0.15;
+    opacity: 0.3; /* Slightly muted to match mockup */
   }
 }
 
