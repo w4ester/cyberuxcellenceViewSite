@@ -9,11 +9,9 @@ You are an LLM tasked with refining the **Sponsorship** section.
 3. Mark each item as you apply it.  
 
 ## Plan
-- [ ] Update heading text.  
-- [ ] Remove “Visit Mindgrub” button.  
-- [ ] Center “Contact Us” button.  
+- [x] Remove "Visit Mindgrub" button.
+- [x] change Contact Us About Sponoorship to "Contact Us" and center button and make it Dark Purple like the current Visit Mindgrub.
 
 ## Checklist
-- [ ] Change “Learn more about Mindgrub” to “Learn About Sponsorship Opportunities…”  
-- [ ] Remove “Visit Mindgrub” button  
-- [ ] Center “Contact Us” button  
+- [x] Remove "Visit Mindgrub" button
+- [x] Center "Contact Us" button

@@ -63,7 +63,21 @@
   color: var(--white);
 }
 
+/* Override for dark purple class to use nearly-black instead */
+.sponsor-cta-button.dark-purple {
+  background-color: var(--mg-nearly-black); /* Using nearly-black */
+  color: var(--white);
+}
+
 .sponsor-cta-button:hover {
+  background-color: #302a2b; /* Slightly lighter shade of nearly-black */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  color: var(--white);
+}
+
+/* Hover state for the nearly-black button */
+.sponsor-cta-button.dark-purple:hover {
   background-color: #302a2b; /* Slightly lighter shade of nearly-black */
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
