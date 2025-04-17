@@ -6,9 +6,11 @@
   position: relative;
   background-color: var(--mg-dark-purple);
   color: var(--white);
-  padding: calc(var(--spacing-xxl) * 1.5) 0; /* Using variable multiplier for emphasis */
+  padding: clamp(calc(var(--spacing-xxl) * 1.25), 10vh, calc(var(--spacing-xxl) * 2.5)) 0; /* KEY CHANGE: Responsive padding *
+  /*old way befor echange for larger screen padding: calc(var(--spacing-xxl) * 1.5) 0; /* Using variable multiplier for emphasis */
   overflow: hidden; /* Important - keeps the background icon contained */
-  min-height: calc(90vh - var(--nav-height));
+  min-height: clamp(550px, calc(90vh - var(--nav-height)), 1000px); /* KEY CHANGE: Min and max height */
+  /*old way min-height: calc(90vh - var(--nav-height));*/
   display: flex;
   align-items: center;
   /* Remove any top margin to eliminate gap */
@@ -39,8 +41,8 @@
   bottom: -50px;
   right: 0;
   transform: rotate(-45deg); /* Fixed at this angle - no rotation */
-  width: 600px; /* Enlarged */
-  height: 600px; /* Enlarged */
+  width: clamp(600px, 35vw, 800px); /* Enlarged *//* KEY CHANGE: Responsive width */
+  height: clamp(600px, 35vw, 800px); /* Enlarged *//* KEY CHANGE: Responsive height */
   background-image: url('../assets/images/Custom Icon Exports/White/SVG/Best Overall UX in Cybersecurity-white.svg');
   background-repeat: no-repeat;
   background-size: contain;
@@ -70,7 +72,7 @@
 }
 
 .hero-section h1 {
-  font-size: 4.5rem; /* Scaled down the font size */
+  font-size: clamp(3.5rem, 4vw, 5rem); /* Reduced maximum size from 6rem to 5rem for larger screens */
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: var(--spacing-md);
@@ -82,7 +84,8 @@
 }
 
 .hero-subheading {
-  font-size: 1.25rem;
+ /* font-size: 1.25rem;*/ /* Original size */
+ font-size: clamp(1.25rem, 1.5vw, 1.75rem); /* KEY CHANGE: Responsive font size */
   line-height: 1.5;
   margin-bottom: var(--spacing-lg);
   max-width: 600px;
