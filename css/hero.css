@@ -38,16 +38,16 @@
 
 .hero-section .hero-bg-icon {
   position: absolute; /* Position relative to the hero section */
-  bottom: -50px;
-  right: 0;
-  transform: rotate(-45deg); /* Fixed at this angle - no rotation */
+  bottom: -20px; /* Moved higher from -50px */
+  right: -10%; /* Moved further right from 0 */
+  transform: rotate(-35deg); /* Adjusted angle for better corner alignment */
   width: clamp(600px, 35vw, 800px); /* Enlarged *//* KEY CHANGE: Responsive width */
   height: clamp(600px, 35vw, 800px); /* Enlarged *//* KEY CHANGE: Responsive height */
   background-image: url('../assets/images/Custom Icon Exports/White/SVG/Best Overall UX in Cybersecurity-white.svg');
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 0; /* Placed below content */
-  opacity: 0.4; /* Slightly muted to match mockup */
+  opacity: 0.25; /* Reduced opacity to be more subtle */
   pointer-events: none; /* Ensures icon doesn't interfere with interactions */
   
   /* Fix to ensure icon stays contained within section when scrolling */
@@ -102,8 +102,8 @@
   .hero-section .hero-bg-icon {
     width: 500px;
     height: 500px;
-    right: 2%;
-    bottom: -40px;
+    right: -8%; /* Adjusted from 2% */
+    bottom: -25px; /* Adjusted from -40px */
   }
   
   .hero-section h1 {
@@ -124,8 +124,8 @@
     width: 400px;
     height: 400px;
     opacity: 0.35; /* Slightly muted to match mockup */
-    right: -50px;
-    bottom: -30px;
+    right: -10%; /* Adjusted from -50px */
+    bottom: -20px; /* Adjusted from -30px */
   }
   
   .hero-subheading {
@@ -159,8 +159,8 @@
   }
   
   .hero-section .hero-bg-icon {
-    right: -70px;
-    bottom: -20px;
+    right: -15%; /* Adjusted from -70px */
+    bottom: -15px; /* Adjusted from -20px */
     width: 300px;
     height: 300px;
     opacity: 0.3; /* Slightly muted to match mockup */
