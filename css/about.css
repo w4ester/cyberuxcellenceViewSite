@@ -147,7 +147,9 @@
   color: rgba(255,255,255,0.25);
   margin-bottom: 8px;
   font-family: serif;
-  left: 0;
+  left: -5px; /* Adjusted from 0 to make visible on desktop */
+  display: block; /* Ensure it's displayed */
+  opacity: 1; /* Ensure full visibility */
 }
 
 /* Divider below quote mark */
@@ -158,6 +160,8 @@
   margin-bottom: 18px;
   margin-top: 0;
   border: none;
+  display: block; /* Ensure it's displayed */
+  opacity: 1; /* Ensure full visibility */
 }
 
 blockquote {

@@ -89,6 +89,7 @@
   max-width: 600px;
   position: relative;
   z-index: 2;
+  margin-top: 20px; /* Add top margin to shift downward */
 }
 
 .categories-section-desktop .category-icon {
@@ -99,6 +100,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  margin-top: 8px; /* Align with the top line of text */
 }
 
 .categories-section-desktop .category-icon img {
@@ -110,6 +112,7 @@
 .categories-section-desktop .category-content {
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Vertical centering */
 }
 
 .categories-section-desktop .category-description-text {
@@ -118,6 +121,7 @@
   margin-bottom: 30px;
   font-weight: 400;
   color: var(--white);
+  text-align: left; /* Ensure left alignment */
 }
 
 .categories-section-desktop .category-note {
@@ -183,6 +187,7 @@
   padding: 40px 40px 24px 40px;
   flex-shrink: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 20px; /* Match top margin of description section */
 }
 
 .categories-section-desktop .category-item {
@@ -191,6 +196,9 @@
   transition: all 0.3s ease;
   padding: 15px 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
 }
 
 .categories-section-desktop .category-item h3 {
@@ -199,6 +207,11 @@
   font-weight: 600;
   margin-bottom: 15px;
   transition: color 0.3s ease;
+  text-align: left; /* Explicitly set left alignment */
+  display: flex;
+  align-items: center; /* Vertically center text */
+  min-height: 2.1rem; /* Ensure consistent height */
+  line-height: 1.2; /* Improved line height for better readability */
 }
 
 .categories-section-desktop .category-item.active h3 {
@@ -214,6 +227,7 @@
   background-color: #b6aadb;
   width: 100%;
   margin-top: 15px;
+  margin-bottom: 0; /* Ensure no bottom margin */
 }
 
 .categories-section-desktop .category-item:last-child .divider {

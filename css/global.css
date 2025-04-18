@@ -444,17 +444,35 @@ section:last-of-type {
   color: #fff !important;
 }
 
-/* Fix for specific screen size where Nominate Now button disappears */
-@media (min-width: 768px) and (max-width: 991px) {
-  .nav-links a.cta-button {
-    padding: 6px 14px !important; /* Slightly smaller padding */
-    font-size: 0.85rem !important; /* Slightly smaller font */
-    margin-left: 5px !important; /* Reduce left margin */
-    min-width: 115px; /* Ensure minimum width */
+/* Improved fix for all screen sizes - ensures "Nominate Now" button stays within red pill */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .nav-links {
+    gap: 28px; /* Slightly reduced gap for large screens */
   }
   
+  .nav-links a.cta-button {
+    padding: 12px 24px; /* Standard padding */
+    font-size: 1rem; /* Slightly smaller than default */
+  }
+}
+
+/* Fix for tablet size range where Nominate Now button needs special attention */
+@media (min-width: 768px) and (max-width: 991px) {
   .nav-links {
-    gap: 20px !important; /* Reduce gap between nav items */
+    gap: 16px !important; /* Significantly reduced gap between nav items */
+  }
+  
+  .nav-links a {
+    font-size: 0.85rem; /* Smaller font for all navbar links */
+  }
+  
+  .nav-links a.cta-button {
+    padding: 8px 16px !important; /* Smaller padding */
+    font-size: 0.85rem !important; /* Matching font size */
+    margin-left: 5px !important; /* Reduced left margin */
+    min-width: 115px; /* Ensuring button has enough width for text */
+    height: auto !important; /* Allow height to adjust naturally */
+    white-space: nowrap; /* Prevent text wrapping */
   }
 }
 
@@ -568,13 +586,14 @@ section:last-of-type {
   font-weight: 700;
 }
 
+/* Consolidated responsive styles - replacing duplicate media query */
 @media (max-width: 991px) {
   .nav-links {
-    gap: 20px;
+    gap: 16px;
   }
   
   .nav-links a {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 }
 

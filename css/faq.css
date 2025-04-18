@@ -3,8 +3,15 @@
  */
 
 .faq-section {
-  /* Match Why Nominate section's white center radial gradient */
-  background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.25) 40%, rgba(134,98,255,0.9) 100%);
+  /* Updated gradient to match About section's style with less prominent white middle */
+  background: linear-gradient(
+    105deg,
+    #af92f8 0%,
+    #c3b3f6 22%,
+    #ffffff 49%,
+    #c3b3f6 78%,
+    #af92f8 100%
+  );
   padding: var(--spacing-xxl) 0;
   position: relative;
   overflow: hidden;
@@ -18,6 +25,14 @@
 .faq-section .container {
   position: relative;
   z-index: 1;
+}
+
+/* Header alignment - match About section's left alignment */
+.faq-section .section-header h2 {
+  text-align: left;
+  color: var(--mg-dark-purple);
+  font-size: 3.5rem;
+  font-weight: 700;
 }
 
 /* Category Tabs */
@@ -152,7 +167,21 @@
 }
 
 /* Responsive Adjustments */
+/* Medium screens (tablets) */
+@media (max-width: 991px) {
+  .faq-section .section-header h2 {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+}
+
+/* Small screens (mobile) */
 @media (max-width: 768px) {
+  .faq-section .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
   .faq-tabs {
     flex-direction: row;
     overflow-x: auto;
