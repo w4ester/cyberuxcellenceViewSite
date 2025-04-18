@@ -112,8 +112,8 @@
     var(--mg-red) 100%
   );
   color: var(--white);
-  padding: 0 0 56px 0; /* Remove top padding to eliminate gap */
-  margin-top: 0; /* Ensure no top margin */
+  padding: 60px 0 56px 0; /* Adding 60px top padding for larger screens */
+  margin-top: 0; /* Fixed margin to show quote */
   margin-bottom: 0;
   position: relative;
   z-index: 5;
@@ -176,6 +176,11 @@ blockquote {
   font-size: 1.25rem;
   margin-top: 12px;
   color: var(--white);
+}
+
+/* CEO title and company name styling */
+.ceo-title, .company-name {
+  display: inline; /* Keep them on the same line by default */
 }
 
 .quote-author {
@@ -246,12 +251,28 @@ blockquote {
 
 @media (max-width: 768px) {
   .about-section {
-    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    padding-bottom: var(--spacing-lg) 0; /* Adjusted for mobile */
+    margin-bottom: 0; /* Ensure no bottom margin */
+  }
+  /*  padding: var(--spacing-xl) 0 var(--spacing-lg);*/
   }
   
   .quote-section {
     margin-top: 0; /* Remove negative margin */
+    padding-top: 0; /* Adjusted for mobile */
+  /*  margin-top: 0; /* Remove negative margin 
     padding: var(--spacing-xl) 0; /* Standardized padding */
+  }
+  
+  .about-section + quote-section {
+    margin-top: 0; /* Remove negative margin */
+    position: relative;
+    /*z-index: 2; only add back if you can not see quote*/
+  }
+
+  /* Adjust the quote divider positioning on mobile */
+  .quote-divider {
+    margin-bottom: 30px; /* Increased from 18px to lower the divider */
   }
   
   .quote-author {
@@ -289,5 +310,41 @@ blockquote {
   
   .ceo-image {
     max-height: 200px;
+  }
+  
+  /* Mobile styling for CEO attribution */
+  .attribution {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+  }
+  
+  .ceo-title, .company-name {
+    display: block; /* Force onto separate lines */
+    white-space: nowrap; /* Prevent text from breaking */
+  }
+}
+
+/* Ensure quote section displays properly on desktop */
+@media (min-width: 992px) {
+  .quote-section {
+    padding: 80px 0 80px 0; /* Substantial padding top and bottom */
+    margin-top: 0;
+    position: relative;
+    z-index: 10; /* Increase z-index to ensure it's above other elements */
+  }
+  
+  .quote-container {
+    min-height: 350px; /* Ensure enough space for the content and image */
+    align-items: center;
+  }
+  
+  .quote-content {
+    padding-left: 20px; /* Add some left padding for better text alignment */
+  }
+  
+  .quote-author {
+    display: flex;
+    align-items: center;
   }
 }
