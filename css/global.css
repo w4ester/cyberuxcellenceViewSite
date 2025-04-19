@@ -229,6 +229,9 @@ section:last-of-type {
 
 .cta-button:hover {
   color: var(--white);
+  box-shadow: 0 4px 12px rgba(209, 44, 49, 0.5);
+  transform: translateY(-2px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .learn-more-button {
@@ -393,6 +396,8 @@ section:last-of-type {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 0 8px;
+}
+
 /* Small red button style for Navbar Nominate Now */
 .nav-links a.cta-button {
   background: var(--mg-red);
@@ -416,18 +421,18 @@ section:last-of-type {
   letter-spacing: 0.04em;
 }
 
-}
-
-/* Match Navbar Nominate Now to Hero/Timeline CTA */
+/* Match Navbar Nominate Now to Hero/Timeline CTA but with smaller size */
 .nav-links a.cta-button {
   background: var(--mg-red) !important;
   color: var(--white) !important;
   font-weight: 600 !important;
-  font-size: 1.125rem !important;
-  padding: 16px 32px !important;
+  font-size: 1rem !important;
+  padding: 10px 20px !important;
   border-radius: var(--border-radius-pill) !important;
   border: none !important;
-  display: inline-block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   text-align: center !important;
   cursor: pointer !important;
   transition: background var(--transition-fast), color var(--transition-fast) !important;
@@ -436,12 +441,16 @@ section:last-of-type {
   letter-spacing: normal !important;
   position: relative; /* Add positioning context */
   z-index: 10; /* Ensure button stays above other elements */
+  height: 40px !important;
 }
 
 .nav-links a.cta-button:hover,
 .nav-links a.cta-button:focus {
   background: #b7131d !important;
   color: #fff !important;
+  box-shadow: 0 4px 12px rgba(209, 44, 49, 0.5) !important;
+  transform: translateY(-2px) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background var(--transition-fast) !important;
 }
 
 /* Improved fix for all screen sizes - ensures "Nominate Now" button stays within red pill */
@@ -498,6 +507,9 @@ section:last-of-type {
 .nav-links .cta-button:focus {
   background: #b7131d;
   color: #fff;
+  box-shadow: 0 4px 12px rgba(209, 44, 49, 0.5);
+  transform: translateY(-2px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background var(--transition-fast);
 }
 
 .nav-links a:hover {
@@ -782,7 +794,7 @@ footer .container {
   margin-bottom: 10px;
 }
 
-.mobile-nominate-btn-container {
+nominate-btn-container {
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -844,7 +856,7 @@ footer .container {
   opacity: 0.7;
   transition: opacity var(--transition-fast);
 }
-
+.mobile-
 .footer-top-links a:hover {
   opacity: 1;
 }

@@ -6,7 +6,7 @@
 // Analytics configuration
 // Replace these placeholder values with actual IDs from Mindgrub
 const ANALYTICS_CONFIG = {
-  googleAnalyticsId: 'G-XXXXXXXXXX', // Replace with actual GA4 measurement ID
+  googleAnalyticsId: 'G-HX9FFQ7HWW', // GA4 measurement ID
   cookieExpiration: 365 // Days
 };
 

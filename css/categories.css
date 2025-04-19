@@ -158,6 +158,8 @@
 .categories-section-desktop .nominate-btn:hover {
   background-color: #e63946;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(209, 44, 49, 0.5);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 /* Center category icon and nomination button in desktop left column */
 .categories-section-desktop .category-description {

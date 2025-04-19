@@ -1,8 +1,8 @@
-/* 
+/*
  * Cyber UXcellence Awards - About Section Styles
  */
 
-.about-section {
+ .about-section {
   /* Purple-White Brand Gradient Background (centered white light) */
   background: linear-gradient(
     105deg,
@@ -112,12 +112,12 @@
     var(--mg-red) 100%
   );
   color: var(--white);
-  padding: 60px 0 56px 0; /* Adding 60px top padding for larger screens */
-  margin-top: 0; /* Fixed margin to show quote */
+  padding: 60px 0 56px 0;
+  margin-top: 0;
   margin-bottom: 0;
   position: relative;
   z-index: 5;
-  overflow: hidden;
+  overflow: hidden; /* Keep hidden as quote is within padding */
 }
 
 .quote-container {
@@ -133,59 +133,91 @@
 
 .quote-content {
   flex: 2.5;
-  position: relative;
-  padding-left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative; /* Needed for absolute positioning of ::before */
+  padding-top: 2rem; /* Add padding to make space for the line */
 }
 
-.quote-mark {
-  font-size: 4.5rem;
-  line-height: 0;
-  position: relative;
-  color: rgba(255,255,255,0.25);
-  margin-bottom: 8px;
-  font-family: serif;
-  left: -5px; /* Adjusted from 0 to make visible on desktop */
-  display: block; /* Ensure it's displayed */
-  opacity: 1; /* Ensure full visibility */
+/* Add stylish line above the quote */
+.quote-content::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; /* Position at the top of the padded quote-content */
+  left: 4rem; /* Align with blockquote text (matches blockquote padding-left) */
+  right: 0; /* Extend line to the right edge of the container */
+  height: 1px; /* Line thickness */
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  z-index: 1; /* Ensure it's visible */
 }
 
-/* Divider below quote mark */
-.quote-divider {
-  width: 100%;
-  height: 2px;
-  background: rgba(255,255,255,0.25);
-  margin-bottom: 18px;
-  margin-top: 0;
-  border: none;
-  display: block; /* Ensure it's displayed */
-  opacity: 1; /* Ensure full visibility */
+
+/* Ensure original separate elements are hidden */
+.quote-mark, .quote-divider {
+  display: none;
 }
 
+/* --- Rules for Large Absolute Quote Mark w/ Text Alignment --- */
+
+/* Add padding for quote mark, ensure no indent, set position context */
 blockquote {
   font-size: 1.55rem;
   line-height: 1.5;
   margin: 0 0 18px 0;
   font-weight: 400;
+  padding: 0; /* Reset padding initially */
+  padding-left: 4rem; /* Add padding ONLY on the left for the quote mark */
+  text-indent: 0; /* Ensure no first-line indent */
+  position: relative; /* Set position context for ::before */
 }
 
+/* Style the ::before pseudo-element for the large quote mark */
+blockquote::before {
+  content: '\201C';        /* Unicode for “ */
+  font-family: Georgia, serif; /* Stylish serif font */
+  font-size: 6rem;         /* Large size */
+  font-weight: normal;     /* Normal weight for Georgia */
+  color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  position: absolute;      /* Position absolutely */
+  left: 1.5rem;            /* Shift right into the padding area */
+  top: -0.5rem;            /* Adjust vertically to align with text top */
+  line-height: 1;          /* Control its own line height */
+  z-index: 1;              /* Ensure it's above background */
+  opacity: 1; /* Opacity handled by rgba */
+  margin-right: 0;
+  display: block; /* Block for positioning */
+  margin-bottom: 0;
+  vertical-align: initial;
+}
+
+/* Remove the ::after rule entirely */
+/* blockquote::after { display: none; } */
+
+
+/* Align attribution with the indented blockquote text */
 .attribution {
   font-weight: 700;
   font-size: 1.25rem;
   margin-top: 12px;
   color: var(--white);
+  padding-left: 4rem; /* Match blockquote padding-left */
+  display: block;
+  position: static;
+  z-index: auto;
 }
+/* --- End of Updated Rules --- */
+
 
 /* CEO title and company name styling */
 .ceo-title, .company-name {
-  display: inline; /* Keep them on the same line by default */
+  display: inline;
 }
 
 .quote-author {
-  flex: 1.5; /* Increased from 1.2 to give even more space to the image */
-  max-width: 320px; /* Increased from 280px for a larger image */
+  flex: 1.5;
+  max-width: 320px;
   display: flex;
   justify-content: center;
 }
@@ -193,153 +225,153 @@ blockquote {
 .ceo-image {
   width: 100%;
   height: auto;
-  max-height: 370px; /* Increased from 320px */
+  max-height: 370px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Added shadow for emphasis */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* --- Media Queries --- */
 @media (max-width: 991px) {
-  .about-section h2 {
-    font-size: 2.8rem;
-    text-align: center;
-  }
-  
-  .about-intro, 
-  .about-description {
-    font-size: 1.2rem;
-  }
-  
-  .checkmark-list li {
-    font-size: 1.1rem;
-  }
-  
-  .creator-info {
-    font-size: 1.1rem;
-  }
-  
-  .quote-section {
-    margin-top: 0; /* Remove negative margin */
-  }
-  
+  .about-section h2 { font-size: 2.8rem; text-align: center; }
+  .about-intro, .about-description { font-size: 1.2rem; }
+  .checkmark-list li { font-size: 1.1rem; }
+  .creator-info { font-size: 1.1rem; }
+  .quote-section { margin-top: 0; }
+
   .quote-container {
     flex-direction: column-reverse;
     gap: var(--spacing-lg);
     padding: 0 var(--spacing-md);
   }
-  
-  .quote-author {
-    max-width: 300px; /* Increased from 250px for tablet */
-  }
-  
-  .ceo-image {
-    max-height: 300px; /* Increased for tablet */
-  }
-  
+  .quote-author { max-width: 300px; }
+  .ceo-image { max-height: 300px; }
   .quote-content {
-    padding-left: 0;
+     padding-left: 0; /* Reset content padding */
+     padding-top: 1.5rem; /* Adjust top padding */
   }
-  
+
+  /* Adjust line position for tablet */
+  .quote-content::before {
+    left: 3rem; /* Match blockquote padding */
+    right: 0; /* Extend to right edge */
+  }
+
   blockquote {
     font-size: 1.25rem;
+    padding-left: 3rem; /* Adjust padding */
+    text-indent: 0;
+    margin-top: 0; /* Reset top margin */
   }
-  
-  .quote-mark {
-    left: -20px;
+
+  blockquote::before {
+     font-size: 5rem; /* Adjust size */
+     top: -0.4rem; /* Adjust position */
+     left: 1rem; /* Shift right */
+  }
+  /* No ::after */
+
+  .attribution {
+     padding-left: 3rem; /* Match blockquote padding */
   }
 }
 
 @media (max-width: 768px) {
-  .about-section {
-    padding: var(--spacing-xl) 0 0; /* Top padding only */
-    margin-bottom: 0; /* Ensure no bottom margin */
-  }
-  
-  .quote-section {
-    margin-top: 0; /* Ensure no gap */
-    padding-top: var(--spacing-xl); /* Add proper top padding */
-  }
-  
-  /* Ensure the sections connect properly */
-  .about-section + .quote-section {
-    margin-top: 0;
+  .about-section { padding: var(--spacing-xl) 0 0; margin-bottom: 0; }
+  .quote-section { margin-top: 0; padding-top: var(--spacing-xl); }
+  .about-section + .quote-section { margin-top: 0; }
+  .quote-author { max-width: 240px; }
+  .ceo-image { max-height: 250px; }
+  .about-section h2 { font-size: 2.5rem; margin-bottom: var(--spacing-lg); }
+  .about-intro { font-size: 1.125rem; }
+  .about-description { font-size: 1rem; }
+  .key-points h3 { font-size: 1.25rem; }
+  .checkmark-list li { font-size: 1rem; }
+  .creator-info { font-size: 1rem; }
+  .ceo-image { max-height: 200px; }
+
+  .quote-content {
+     padding-top: 1rem; /* Adjust top padding */
   }
 
-  /* Adjust the quote divider positioning on mobile */
-  .quote-divider {
-    margin-bottom: 30px; /* Increased from 18px to lower the divider */
+  /* Adjust line position for mobile */
+  .quote-content::before {
+    left: 2.5rem; /* Match blockquote padding */
+    right: 0; /* Extend to right edge */
   }
-  
-  .quote-author {
-    max-width: 240px; /* Adjusted for mobile, but still larger than original */
+
+  blockquote {
+     padding-left: 2.5rem; /* Adjust padding */
+     text-indent: 0;
+     margin-top: 0; /* Reset top margin */
   }
-  
-  .ceo-image {
-    max-height: 250px; /* Adjusted for mobile, but still larger than original */
+
+  blockquote::before {
+     font-size: 4rem; /* Adjust size */
+     top: -0.3rem; /* Adjust position */
+     left: 0.8rem; /* Shift right */
   }
-  
-  .about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-lg);
-  }
-  
-  .about-intro {
-    font-size: 1.125rem;
-  }
-  
-  .about-description {
-    font-size: 1rem;
-  }
-  
-  .key-points h3 {
-    font-size: 1.25rem;
-  }
-  
-  .checkmark-list li {
-    font-size: 1rem;
-  }
-  
-  .creator-info {
-    font-size: 1rem;
-  }
-  
-  .ceo-image {
-    max-height: 200px;
-  }
-  
+   /* No ::after */
+
   /* Mobile styling for CEO attribution */
   .attribution {
     display: flex;
     flex-direction: column;
     line-height: 1.4;
+    padding-left: 2.5rem; /* Match blockquote padding */
+    position: static;
   }
-  
+
   .ceo-title, .company-name {
-    display: block; /* Force onto separate lines */
-    white-space: nowrap; /* Prevent text from breaking */
+    display: block;
+    white-space: nowrap;
   }
 }
 
-/* Ensure quote section displays properly on desktop */
+/* Desktop Styles */
 @media (min-width: 992px) {
   .quote-section {
-    padding: 80px 0 80px 0; /* Substantial padding top and bottom */
+    padding: 80px 0 80px 0;
     margin-top: 0;
     position: relative;
-    z-index: 10; /* Increase z-index to ensure it's above other elements */
+    z-index: 10;
+    overflow: hidden;
   }
-  
-  .quote-container {
-    min-height: 350px; /* Ensure enough space for the content and image */
-    align-items: center;
-  }
-  
+  .quote-container { min-height: 350px; align-items: center; }
   .quote-content {
-    padding-left: 20px; /* Add some left padding for better text alignment */
+      padding-top: 2rem; /* Restore desktop padding */
+   }
+
+  /* Restore line position for desktop */
+  .quote-content::before {
+    left: 4rem; /* Match blockquote padding */
+    right: 0; /* Extend to right edge */
+    top: 0;
   }
-  
-  .quote-author {
-    display: flex;
-    align-items: center;
+
+  blockquote {
+    /* Restore desktop settings */
+    padding-left: 4rem;
+    text-indent: 0;
+    position: relative;
+    margin-top: 0; /* Reset top margin */
+  }
+
+  blockquote::before {
+     /* Restore desktop size/position */
+    font-size: 6rem;
+    top: -0.5rem;
+    left: 1.5rem; /* Shift right */
+    position: absolute;
+  }
+   /* No ::after */
+
+   .attribution {
+     padding-left: 4rem; /* Restore desktop padding */
+     display: block;
+     position: static;
+  }
+  .ceo-title, .company-name {
+    display: inline;
   }
 }
